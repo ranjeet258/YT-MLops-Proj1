@@ -6,6 +6,67 @@ Welcome to this MLOps project, designed to demonstrate a robust pipeline for man
 
 ## 📁 Project Setup and Structure
 
+### Project Directory Tree
+```text
+.
+├── .github
+│   └── workflows
+│       └── aws.yaml                 # CI/CD pipeline configuration for AWS
+├── .vscode
+│   └── settings.json                # VS Code workspace settings
+├── config
+│   ├── model.yaml                   # Configuration holding model parameters
+│   └── schema.yaml                  # Data schema validation rules
+├── notebook
+│   ├── data.csv                     # Raw data file for testing
+│   ├── exp-notebook.ipynb           # EDA and experimental notebook
+│   └── mongoDB_demo.ipynb           # Notebook demonstrating MongoDB integration
+├── src
+│   ├── __init__.py                  # Marks directory as a Python package
+│   ├── cloud_storage
+│   │   └── aws_storage.py           # Handles AWS S3 interactions
+│   ├── components
+│   │   ├── data_ingestion.py        # Fetches data from MongoDB to local
+│   │   ├── data_transformation.py   # Cleans and processes raw data
+│   │   ├── data_validation.py       # Validates data against predefined schema
+│   │   ├── model_evaluation.py      # Evaluates trained model metrics
+│   │   ├── model_pusher.py          # Deploys successful model to S3
+│   │   └── model_trainer.py         # Trains the machine learning model
+│   ├── configuration
+│   │   ├── aws_connection.py        # AWS credentials setup
+│   │   └── mongo_db_connection.py   # MongoDB connection setup
+│   ├── constants                    # Project-wide constant variables
+│   ├── data_access
+│   │   └── proj1_data.py            # Code to retrieve data from DB
+│   ├── entity
+│   │   ├── artifact_entity.py       # Dataclasses for output artifacts
+│   │   ├── config_entity.py         # Dataclasses for pipeline configuration
+│   │   ├── estimator.py             # Custom model estimator code
+│   │   └── s3_estimator.py          # Specific estimator for saving/loading from S3
+│   ├── exception                    # Custom exception classes
+│   ├── logger                       # Custom logging setup
+│   ├── pipline
+│   │   ├── prediction_pipeline.py   # End-to-end prediction steps
+│   │   └── training_pipeline.py     # End-to-end model training steps
+│   └── utils
+│       └── main_utils.py            # Helper functions used across the project
+├── static
+│   └── css
+│       └── style.css                # CSS for the Flask web application
+├── templates
+│   └── vehicledata.html             # HTML template for model prediction UI
+├── .dockerignore                    # Files ignored by Docker builds
+├── .gitignore                       # Files ignored by Git
+├── app.py                           # Main Flask API and Web application entry point
+├── demo.py                          # Temporary script to demo or test logic
+├── Dockerfile                       # Blueprint to containerize the application
+├── pyproject.toml                   # Python build dependencies and settings
+├── README.md                        # Documentation of the project
+├── requirements.txt                 # Project dependencies for PIP
+├── setup.py                         # Builds the src folder as a local package
+└── template.py                      # Script to automate folder/file generation
+```
+
 ### Step 1: Project Template
 - Start by executing the `template.py` file to create the initial project template, which includes the required folder structure and placeholder files.
 
@@ -133,15 +194,8 @@ Welcome to this MLOps project, designed to demonstrate a robust pipeline for man
 1. Open the 5080 port on the EC2 instance.
 2. Access the deployed app by visiting `http://<public_ip>:5080`.
 
----
 
-## 🛠️ Additional Resources
-- **Crash Course on setup.py and pyproject.toml**: See `crashcourse.txt` for details.
-- **GitHub Secrets**: Manage secrets for secure CI/CD pipelines.
-
----
-
-## 🎯 Project Workflow Summary
+## Project Workflow Summary
 
 1. **Data Ingestion** ➔ **Data Validation** ➔ **Data Transformation**
 2. **Model Training** ➔ **Model Evaluation** ➔ **Model Deployment**
