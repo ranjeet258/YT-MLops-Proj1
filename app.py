@@ -1,3 +1,9 @@
+'''Summary of this file is 
+
+
+
+'''
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
@@ -14,7 +20,7 @@ from src.pipline.prediction_pipeline import VehicleData, VehicleDataClassifier
 from src.pipline.training_pipeline import TrainPipeline
 
 # Initialize FastAPI application
-app = FastAPI()
+app = FastAPI()  
 
 # Mount the 'static' directory for serving static files (like CSS)
 app.mount("/static", StaticFiles(directory="static"), name="static")
