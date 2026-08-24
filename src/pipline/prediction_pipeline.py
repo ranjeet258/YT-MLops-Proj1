@@ -98,13 +98,28 @@ class VehicleDataClassifier:
         """
         try:
             logging.info("Entered predict method of VehicleDataClassifier class")
-            model = Proj1Estimator(
-                bucket_name=self.prediction_pipeline_config.model_bucket_name,
-                model_path=self.prediction_pipeline_config.model_file_path,
-            )
-            result =  model.predict(dataframe)
             
-            return result
+            # Check for a locally trained model first (for local testing without AWS keys)
+            import os, glob, dill
+            local_models = glob.glob('artifact/**/model.pkl', recursive=True)
+            
+            if local_models:
+                # Get the most recently created model
+                latest_model_path = max(local_models, key=os.path.getctime)
+                logging.info(f"Loading local model from {latest_model_path} for prediction")
+                with open(latest_model_path, "rb") as file_obj:
+                    model = dill.load(file_obj)
+                result = model.predict(dataframe)
+                return result
+            else:
+                # Fallback to S3 if no local model is found
+                logging.info("No local model found. Falling back to S3.")
+                model = Proj1Estimator(
+                    bucket_name=self.prediction_pipeline_config.model_bucket_name,
+                    model_path=self.prediction_pipeline_config.model_file_path,
+                )
+                result =  model.predict(dataframe)
+                return result
         
         except Exception as e:
             raise MyException(e, sys)
