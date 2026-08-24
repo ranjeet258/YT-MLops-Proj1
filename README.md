@@ -14,9 +14,8 @@ Insurance companies often possess large customer bases for health or life insura
 Beyond predictions, this repository serves as a **Production-Grade MLOps Architecture**, demonstrating automated data ingestion, model versioning, cloud deployment, and CI/CD automation.
 
 ---
-## Video 
-
-https://github.com/user-attachments/assets/cf21726f-6eef-40f9-8291-8611707798c1
+## Video: Code to Cloud
+https://github.com/user-attachments/assets/5baf986b-1150-4520-bcb0-8cac7be7a66b
 
 ## 🏗️ Architecture & Pipeline
 This project is built using a robust, highly scalable MLOps architecture.
