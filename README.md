@@ -1,3 +1,4 @@
+
 # 🚗 End-to-End MLOps: Vehicle Insurance Prediction
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
@@ -13,6 +14,9 @@ Insurance companies often possess large customer bases for health or life insura
 Beyond predictions, this repository serves as a **Production-Grade MLOps Architecture**, demonstrating automated data ingestion, model versioning, cloud deployment, and CI/CD automation.
 
 ---
+## Video 
+
+https://github.com/user-attachments/assets/cf21726f-6eef-40f9-8291-8611707798c1
 
 ## 🏗️ Architecture & Pipeline
 This project is built using a robust, highly scalable MLOps architecture.
